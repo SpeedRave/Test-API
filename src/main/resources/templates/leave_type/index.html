@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <div>
+            <a th:href="@{/leave_type/form}">CREATE</a>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Is Special Leave</td>
+                        <td>Days Duration</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="leave_type: ${leave_types}">
+                        <td th:text="${leave_type.leave_type_id}"></td>
+                        <td th:text="${leave_type.name}"></td>
+                        <td th:text="${leave_type.is_special_leave}"></td>
+                        <td th:text="${leave_type.days_duration}"></td>
+                        <td>
+                            <a th:href="@{/leave_type/form/{id} (id = ${leave_type.leave_type_id})}">EDIT</a> | 
+                            <form th:action="@{/leave_type/delete/{id} (id = ${leave_type.leave_type_id})}" method="post">
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

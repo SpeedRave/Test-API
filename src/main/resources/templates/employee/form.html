@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <div>
+            <form th:action="@{/employee/save}" method="post" th:object="${employee}">
+                <input id="id" name="employee_id" th:field="*{employee_id}" placeholder="id" type="text" hidden>
+                <p>Employee Name <input id="name" name="full_name" th:field="*{full_name}" placeholder="name" type="text"></p>
+                <p>Email <input id="email" name="email" th:field="*{email}" placeholder="email" type="text"></p>
+                <p>Address <input id="address" name="address" th:field="*{address}" placeholder="address" type="text"></p>
+                <p>Phone Number <input id="phone_number" name="phone_number" th:field="*{phone_number}" placeholder="phone_number" type="text"></p>
+                <p>Leave Quota <input id="leave_quota" name="leave_quota" th:field="*{leave_quota}" placeholder="leave_quota" type="text"></p>
+                <p>
+                    Department
+                    <select th:field="*{department}"> <!--field department diambil dari Entity ini (Employee)-->
+                        <option th:each="department : ${departments}" th:value="${department.department_id}" th:text="${department.name}"></option>
+                    </select>
+                </p>
+                <p><button type="submit">Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>

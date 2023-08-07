@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <div>
+            <a th:href="@{/leave/form}">CREATE</a>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Apply Time</td>
+                        <td>Leave From</td>
+                        <td>Leave To</td>
+                        <td>Reason</td>
+                        <td>Approval By</td>
+                        <td>Approval Status</td>
+                        <td>Approval Date</td>
+                        <td>Request By</td>
+                        <td>Leave Type</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="leave: ${leaves}">
+                        <td th:text="${leave.leave_id}"></td>
+                        <td th:text="${leave.apply_time}"></td>
+                        <td th:text="${leave.leave_from}"></td>
+                        <td th:text="${leave.leave_to}"></td>
+                        <td th:text="${leave.reason}"></td>
+                        <td th:text="${leave.approval_by}"></td>
+                        <td th:text="${leave.approval_status}"></td>
+                        <td th:text="${leave.approval_date}"></td>
+                        <td th:text="${leave.employee.full_name}"></td>
+                        <td th:text="${leave.leaveType.name}"></td>
+                        <td>
+                            <a th:href="@{/leave/form/{id} (id = ${leave.leave_id})}">EDIT</a> | 
+                            <form th:action="@{/leave/delete/{id} (id = ${leave.leave_id})}" method="post">
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

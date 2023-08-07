@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <div>
+            <a th:href="@{/holidays/form}">CREATE</a>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Holiday Name</td>
+                        <td>Date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="holidays: ${holidayses}">
+                        <td th:text="${holidays.holidays_id}"></td>
+                        <td th:text="${holidays.name}"></td>
+                        <td th:text="${holidays.date}"></td>
+                        <td>
+                            <a th:href="@{/holidays/form/{id} (id = ${holidays.holidays_id})}">EDIT</a> | 
+                            <form th:action="@{/holidays/delete/{id} (id = ${holidays.holidays_id})}" method="post">
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

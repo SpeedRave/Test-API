@@ -1,0 +1,40 @@
+<html>
+    <body>
+        <div>
+            <a th:href="@{/employee/form}">CREATE</a>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Full Name</td>
+                        <td>Email</td>
+                        <td>Address</td>
+                        <td>Phone Number</td>
+                        <td>Leave Quota</td>
+                        <td>Department</td>
+                        <td>Manager ID</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="employee: ${employees}">
+                        <td th:text="${employee.employee_id}"></td>
+                        <td th:text="${employee.full_name}"></td>
+                        <td th:text="${employee.email}"></td>
+                        <td th:text="${employee.address}"></td>
+                        <td th:text="${employee.phone_number}"></td>
+                        <td th:text="${employee.leave_quota}"></td>
+                        <td th:text="${employee.department.name}"></td>
+                        <td th:text="${employee.manager_id}"></td>
+                        <td>
+                            <a th:href="@{/employee/form/{id} (id = ${employee.employee_id})}">EDIT</a> | 
+                            <form th:action="@{/employee/delete/{id} (id = ${employee.employee_id})}" method="post">
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

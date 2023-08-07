@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <div>
+            <form th:action="@{/department/save}" method="post" th:object="${department}">
+                <input id="id" name="department_id" th:field="*{department_id}" placeholder="id" type="text" hidden>
+                <p>Department Name <input id="name" name="name" th:field="*{name}" placeholder="name" type="text"></p>
+                <p>Address <input id="address" name="address" th:field="*{address}" placeholder="address" type="text"></p>
+                <p><button type="submit">Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>

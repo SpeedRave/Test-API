@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <div>
+            <form th:action="@{/holidays/save}" method="post" th:object="${holidays}">
+                <input id="id" name="holidays_id" th:field="*{holidays_id}" placeholder="id" type="text" hidden>
+                <p>Holiday Name <input id="name" name="name" th:field="*{name}" placeholder="name" type="text"></p>
+                <p>Date <input id="date" name="date" th:field="*{date}" placeholder="date" type="date"></p>
+                <p><button type="submit">Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>

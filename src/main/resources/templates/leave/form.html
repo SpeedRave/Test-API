@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <div>
+            <form th:action="@{/leave/save}" method="post" th:object="${leave}">
+                <input id="id" name="leave_id" th:field="*{leave_id}" placeholder="leave_id" type="text" hidden>
+                <input id="apply_time" name="apply_time" th:field="*{apply_time}" placeholder="name" type="datetime" hidden>
+                <p>Leave From <input id="leave_from" name="leave_from" th:field="*{leave_from}" placeholder="leave_from" type="date"></p>
+                <p>Leave To <input id="leave_to" name="leave_to" th:field="*{leave_to}" placeholder="leave_to" type="date"></p>
+                <p>Reason <input id="reason" name="reason" th:field="*{reason}" placeholder="reason" type="text"></p>
+                <input id="approval_status" name="approval_status" th:field="*{approval_status}" placeholder="approval_status" type="text" hidden>
+                <input id="approval_date" name="approval_date" th:field="*{approval_date}" placeholder="approval_date" type="date" hidden>
+                <p>
+                    Requested By
+                    <select th:field="*{employee}">
+                        <option th:each="employee : ${employees}" th:value="${employee.employee_id}" th:text="${employee.full_name}"></option>
+                    </select>
+                </p>
+                <p>
+                    Leave Type
+                    <select th:field="*{leaveType}">
+                        <option th:each="leaveType : ${leaveTypes}" th:value="${leaveType.leave_type_id}" th:text="${leaveType.name}"></option>
+                    </select>
+                </p>
+                <p><button type="submit">Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>

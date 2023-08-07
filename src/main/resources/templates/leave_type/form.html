@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <div>
+            <form th:action="@{/leave_type/save}" method="post" th:object="${leave_type}">
+                <input id="id" name="leave_type_id" th:field="*{leave_type_id}" placeholder="id" type="text" hidden>
+                <p>Leave Type Name <input id="name" name="name" th:field="*{name}" placeholder="name" type="text"></p>
+                <p>Is Special Leave <input id="is_special_leave" name="is_special_leave" th:field="*{is_special_leave}" placeholder="is_special_leave" type="checkbox"></p>
+                <p>Days Duration <input id="days_duration" name="days_duration" th:field="*{days_duration}" placeholder="days_duration" type="text"></p>
+                <p><button type="submit">Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>
