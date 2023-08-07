@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_m_leave_type")
 public class LeaveType {
@@ -20,6 +22,7 @@ public class LeaveType {
     private int days_duration;
 
     @OneToMany(mappedBy = "leaveType") //Mapped By ke nama atribut yang ada pada Model Leave
+    @JsonIgnore
     private List<Leave> leave;
 
     public LeaveType()
